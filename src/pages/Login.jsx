@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
@@ -20,7 +20,10 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(process.env.API_URL + "/api/auth/login", inputs);
+      // await axios.post(
+      //   "https://blog-backend.up.railway.app/api/auth/login",
+      //   inputs
+      // );
       await login(inputs);
       // console.log(res);
       navigate("/");

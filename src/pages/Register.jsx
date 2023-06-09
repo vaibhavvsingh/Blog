@@ -18,7 +18,10 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(process.env.API_URL + "/api/auth/register", inputs);
+      await axios.post(
+        "https://blog-backend.up.railway.app/api/auth/register",
+        inputs
+      );
       navigate("/login");
     } catch (err) {
       setError(err.response.data);
