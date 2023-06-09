@@ -43,7 +43,7 @@ export default function Write() {
               img: file ? imgUrl.filename : "",
             }
           )
-        : await axios.post(`${process.env.API_URL}/posts/`, {
+        : await axios.post(`https://blog-backend.up.railway.app/api/posts/`, {
             title,
             desc: value,
             cat,
