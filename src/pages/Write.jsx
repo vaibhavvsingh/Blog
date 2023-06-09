@@ -19,7 +19,7 @@ export default function Write() {
       const formData = new FormData();
       formData.append("file", file);
 
-      const res = await axios.post("/upload", formData);
+      const res = await axios.post(`${process.env.API_URL}/upload`, formData);
       return res.data;
     } catch (err) {
       console.log(err);
@@ -31,13 +31,13 @@ export default function Write() {
 
     try {
       state
-        ? await axios.put(`/posts/${state.id}`, {
+        ? await axios.put(`${process.env.API_URL}/posts/${state.id}`, {
             title,
             desc: value,
             cat,
             img: file ? imgUrl.filename : "",
           })
-        : await axios.post(`/posts/`, {
+        : await axios.post(`${process.env.API_URL}/posts/`, {
             title,
             desc: value,
             cat,

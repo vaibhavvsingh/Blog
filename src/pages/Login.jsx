@@ -20,7 +20,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8800/api/auth/login", inputs);
+      await axios.post(process.env.API_URL + "/api/auth/login", inputs);
       await login(inputs);
       // console.log(res);
       navigate("/");

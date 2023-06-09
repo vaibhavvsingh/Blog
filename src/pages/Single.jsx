@@ -20,7 +20,7 @@ export default function Single() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/posts/${postId}`);
+      await axios.delete(`${process.env.API_URL}/posts/${postId}`);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -30,7 +30,7 @@ export default function Single() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`/posts/${postId}`);
+        const res = await axios.get(`${process.env.API_URL}/posts/${postId}`);
         setPost(res.data);
       } catch (err) {
         console.log(err);
