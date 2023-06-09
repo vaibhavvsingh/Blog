@@ -23,6 +23,7 @@ export default function Write() {
         `https://blog-backend.up.railway.app/api/upload`,
         formData
       );
+      console.log(res.data);
       return res.data;
     } catch (err) {
       console.log(err);
@@ -40,14 +41,14 @@ export default function Write() {
               title,
               desc: value,
               cat,
-              img: file ? imgUrl.filename : "",
+              img: file ? imgUrl?.filename : "",
             }
           )
         : await axios.post(`https://blog-backend.up.railway.app/api/posts/`, {
             title,
             desc: value,
             cat,
-            img: file ? imgUrl.filename : "",
+            img: file ? imgUrl?.filename : "",
             date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
           });
       navigate("/");
